@@ -28,4 +28,4 @@ Debian-based system) `apt install libpulse-dev` will install the required
 files.
 
 The program can then be compiled with:
-`gcc -O2 $(pkg-config --cflags --libs libpulse)" -O pavolume pavolume.c`
+`gcc -O2 $(pkg-config --cflags --libs libpulse) -o pavolume pavolume.c`
