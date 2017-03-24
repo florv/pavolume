@@ -88,6 +88,10 @@ void on_sink_info(pa_context *context, const pa_sink_info *info, int eol, void *
 				(mute_action == UNMUTE) ? NULL : on_success_quit;
 			pa_context_set_sink_volume_by_index(context, info->index, &volume,
 					callback, NULL);
+		} else {
+			if (mute_action == MUTE_NO_ACTION) {
+				pa_mainloop_quit(mainloop, 0);
+			}
 		}
 
 		if (mute_action == UNMUTE) {
