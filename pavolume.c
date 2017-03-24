@@ -126,6 +126,8 @@ void parse_volume(const char * s) {
 	} else if (!strcmp(endptr, "dB")) {
 		value.volume = pa_sw_volume_from_dB(value.f);
 		value_is_volume = 1;
+	} else if (*endptr != 0) {
+		die("Invalid volume value, there are trailing characters present");
 	}
 }
 
